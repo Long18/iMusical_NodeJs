@@ -1,10 +1,10 @@
 {
-  "name": "node-api-starter",
-  "version": "0.0.2",
-  "description": "NodeJS API Starter with MongoDB",
+  "name": "iMusical",
+  "version": "0.0.1",
+  "description": "iMusical with MongoDB",
   "main": "index.js",
-  "repository": "https://github.com/shubhambattoo/node-api-starter.git",
-  "author": "shubhambattoo",
+  "repository": "https://github.com/Long18/iMusical_NodeJs",
+  "author": "William",
   "license": "MIT",
   "private": true,
   "scripts": {
