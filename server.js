@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./database/db');
+
+// declare routes
 const authRoutes = require('./routes/auth');
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
@@ -20,8 +22,10 @@ app.use('/api/product', productRoutes);
 app.use('/uploads', express.static('uploads'));
 app.use('/api/filter', filterRoutes);
 
+// Connect Db
 connectDB();
 
+// Connect Port
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

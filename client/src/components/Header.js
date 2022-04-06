@@ -16,7 +16,7 @@ const Header = ({ history }) => {
 	const showNavigation = () => (
 		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 			<Link to='/' className='navbar-brand'>
-				Logo
+				<img src='/images/logo2.png' alt='iMusical Logo' />
 			</Link>
 			<button
 				className='navbar-toggler'
@@ -81,6 +81,29 @@ const Header = ({ history }) => {
 							<li className='nav-item'>
 								<Link to='/user/dashboard' className='nav-link'>
 									<i className='fas fa-home'></i> Dashboard
+								</Link>
+							</li>
+							<li className='nav-item'>
+								<Link to='/shop' className='nav-link'>
+									<i className='fas fa-shopping-bag'></i> Shop
+								</Link>
+							</li>
+							<li
+								className='nav-item mr-2'
+								style={{ position: 'relative' }}
+							>
+								<Link to='/cart' className='nav-link'>
+									<i className='fas fa-shopping-cart'></i>{' '}
+									Cart{' '}
+									<span
+										className='badge badge-danger'
+										style={{
+											position: 'absolute',
+											top: '0px',
+										}}
+									>
+										{cart.length}
+									</span>
 								</Link>
 							</li>
 						</Fragment>

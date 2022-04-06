@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
+// Khai báo cái này để sử dụng file .env nha
 dotenv.config();
 
 const connectDB = async () => {

@@ -84,7 +84,7 @@ const Shop = () => {
 							<button
 								className='btn btn-outline-success my-2 my-sm-0'
 								type='submit'
-								disabled={true}
+								disabled={false}
 							>
 								Search
 							</button>

@@ -102,7 +102,7 @@ const AdminProductModal = () => {
 	 * RENDERER
 	 ***************************/
 	return (
-		<div id='addFoodModal' className='modal' onClick={handleMessages}>
+		<div id='addProductModal' className='modal' onClick={handleMessages}>
 			<div className='modal-dialog modal-dialog-centered modal-lg'>
 				<div className='modal-content'>
 					<form onSubmit={handleProductSubmit}>
@@ -222,14 +222,12 @@ const AdminProductModal = () => {
 						<div className='modal-footer'>
 							<button
 								className='btn btn-secondary'
-								data-dismiss='modal'
-							>
+								data-dismiss='modal'>
 								Close
 							</button>
 							<button
 								type='submit'
-								className='btn btn-warning text-white'
-							>
+								className='btn btn-warning text-white'>
 								Submit
 							</button>
 						</div>

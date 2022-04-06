@@ -18,9 +18,9 @@ const AdminActionBtns = () => (
 					<button
 						className='btn btn-outline-warning btn-block'
 						data-toggle='modal'
-						data-target='#addFoodModal'
-					>
-						<i className='fas fa-plus'> Add Food</i>
+						data-target='#addProductModal'>
+						<i className='fas fa-plus'> Add Product</i>
+						
 					</button>
 				</div>
 
