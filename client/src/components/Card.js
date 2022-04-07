@@ -28,7 +28,7 @@ const Card = ({ product, adminPage = false, homePage = false }) => {
 					<hr />
 					<h6 className='mb-3'>
 						<span className='text-secondary mr-2'>
-							{product.productPrice}
+							{product.productPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}
 						</span>
 					</h6>
 					<p className='text-muted'>

@@ -43,7 +43,7 @@ const Product = ({ match, history }) => {
 						<h3 className='mb-4'>{product.productName}</h3>
 						<p className='text-muted border-top py-2'>
 							Price:{' '}
-							{product.productPrice}
+							{product.productPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}
 						</p>
 						<p className='text-muted border-top py-2'>
 							Status:{' '}

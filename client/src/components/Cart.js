@@ -87,7 +87,7 @@ const Cart = ({ history }) => {
 											</td>
 											<td>
 												{' '}
-												{product.productPrice}
+												{product.productPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}
 											</td>
 											<td>
 												<input
@@ -132,7 +132,7 @@ const Cart = ({ history }) => {
 									: `(${cart.length}) Items`}
 							</p>
 							<p className='font-weight-bold'>
-								Total: $
+								Total:
 								{cart
 									.reduce(
 										(currentSum, currentCartItem) =>
@@ -140,8 +140,8 @@ const Cart = ({ history }) => {
 											currentCartItem.count *
 												currentCartItem.productPrice,
 										0
-									)
-									.toFixed(2)}
+									).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+									} 
 							</p>
 							<button className='btn btn-dark btn-large btn-block mb-5 py-2'>
 								Proceed to Checkout
