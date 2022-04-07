@@ -20,7 +20,7 @@ Open direct folder Client in _vscode_:
 
 In Terminal:
 
-    **npm run dev (to run both server and client)** <== You must do this first to run
+    npm run dev (to run both server and client) <== You must do this first to run
 
 
     npm run start-client (to run only client) | This command just run only
