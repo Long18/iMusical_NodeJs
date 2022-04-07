@@ -15,8 +15,8 @@ const Card = ({ product, adminPage = false, homePage = false }) => {
 	return (
 		<div className='col-md-4 my-3'>
 			<div className='card h-100'>
-				<a href='#!'>
-					<img
+				<a href={`/product/${product._id}`}>
+					<img 
 						className='img-fluid w-100'
 						src={`/uploads/${product.fileName}`}
 						alt='product'

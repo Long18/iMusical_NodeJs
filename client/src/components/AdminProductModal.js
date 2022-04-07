@@ -66,11 +66,8 @@ const AdminProductModal = () => {
 
 		if (productImage === null) {
 			setClientSideError('Please select an image');
-		} else if (
-			isEmpty(productName) ||
-			isEmpty(productDesc) ||
-			isEmpty(productPrice)
-		) {
+		} else if ( isEmpty(productName) || isEmpty(productDesc) || isEmpty(productPrice)) 
+		{ 
 			setClientSideError('Please enter all fields');
 		} else if (isEmpty(productCategory)) {
 			setClientSideError('Please select a category');
@@ -130,8 +127,7 @@ const AdminProductModal = () => {
 											type='file'
 											className='custom-file-input'
 											name='productImage'
-											onChange={handleProductImage}
-										/>
+											onChange={handleProductImage} />
 										<label className='custom-file-label'>
 											Choose File
 										</label>
@@ -146,8 +142,7 @@ const AdminProductModal = () => {
 											className='form-control'
 											name='productName'
 											value={productName}
-											onChange={handleProductChange}
-										/>
+											onChange={handleProductChange} />
 									</div>
 
 									<div className='form-group'>
@@ -184,17 +179,13 @@ const AdminProductModal = () => {
 											<select
 												className='custom-select mr-sm-2'
 												name='productCategory'
-												onChange={handleProductChange}
-											>
+												onChange={handleProductChange}>
 												<option value=''>
 													Choose one...
 												</option>
 												{categories &&
 													categories.map(c => (
-														<option
-															key={c._id}
-															value={c._id}
-														>
+														<option key={c._id} value={c._id}>
 															{c.category}
 														</option>
 													))}
@@ -209,11 +200,10 @@ const AdminProductModal = () => {
 												type='number'
 												className='form-control'
 												min='0'
-												max='1000'
+												max='100'
 												name='productQty'
 												value={productQty}
-												onChange={handleProductChange}
-											/>
+												onChange={handleProductChange} />
 										</div>
 									</div>
 								</Fragment>

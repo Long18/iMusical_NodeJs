@@ -12,12 +12,8 @@ import { getProducts } from "../redux/actions/productActions";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  useEffect(() => {dispatch(getCategories());}, [dispatch]);
+  useEffect(() => {dispatch(getProducts());}, [dispatch]);
 
 
   return (

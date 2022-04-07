@@ -7,7 +7,9 @@ const {
 } = require('../middleware/validator');
 const { signupController, signinController } = require('../controllers/auth');
 
-router.post('/signup', signupValidator, validatorResult, signupController);
+// Router đăng kí và đăng nhập || kèm theo các middleware là Validate của nó
+router.post('/signup', signupValidator, validatorResult, signupController); 
 router.post('/signin', signinValidator, validatorResult, signinController);
 
+// export router để sử dụng
 module.exports = router;
