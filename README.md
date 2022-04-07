@@ -8,6 +8,11 @@ Open direct folder of Nodejs:
   - Run: **npm i** _mean: npm install_ or **npm update**
   - Change file .env.example to .env
 
+Open direct folder Client in _vscode_:
+
+  - Right click and choose "Git Bash Here" or "New Terminal Here" in _vscode_.
+  - Run: **cd client** and **npm i** _mean: npm install_ or **npm update**
+
 Open file .env and change:
 
     PORT = 5000
