@@ -8,8 +8,7 @@ const AdminActionBtns = () => (
 					<button
 						className='btn btn-outline-info btn-block'
 						data-toggle='modal'
-						data-target='#addCategoryModal'
-					>
+						data-target='#addCategoryModal'>
 						<i className='fas fa-plus'> Add Category</i>
 					</button>
 				</div>
