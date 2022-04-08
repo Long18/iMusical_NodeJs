@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AdminActionBtns = () => (
+const AdminButtons = () => (
 	<div className='bg-light my-2'>
 		<div className='container'>
 			<div className='row pb-3'>
@@ -33,4 +33,4 @@ const AdminActionBtns = () => (
 	</div>
 );
 
-export default AdminActionBtns;
+export default AdminButtons;

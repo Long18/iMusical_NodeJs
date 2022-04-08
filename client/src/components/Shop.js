@@ -6,55 +6,55 @@ import { getProductsByFilter } from '../redux/actions/filterActions';
 import Card from './Card';
 
 const Shop = () => {
-	const [text, setText] = useState('');
-	const [categoryIds, setCategoryIds] = useState([]);
+	const [text, setText] = useState(''); // lấy dữ liệu từ input
+	const [categoryIds, setCategoryIds] = useState([]); // lấy dữ liệu từ input
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch(); // để gọi action
 
-	useEffect(() => {
-		dispatch(getProducts());
+	useEffect(() => { // gọi api
+		dispatch(getProducts()); // lấy danh sách sản phẩm
 	}, [dispatch]);
 
-	useEffect(() => {
-		dispatch(getCategories());
+	useEffect(() => { // gọi api
+		dispatch(getCategories()); // lấy danh sách danh mục
 	}, [dispatch]);
 
-	const { products } = useSelector(state => state.products);
-	const { categories } = useSelector(state => state.categories);
+	const { products } = useSelector(state => state.products); // lấy dữ liệu từ redux
+	const { categories } = useSelector(state => state.categories); // lấy dữ liệu từ redux
 
-	const handleSearch = e => {
-		resetState();
+	const handleSearch = e => { // sự kiện khi user nhập vào form
+		resetState(); // xóa dữ liệu cũ
 
-		setText(e.target.value);
+		setText(e.target.value); // lấy dữ liệu mới
 
-		dispatch(getProductsByFilter({ type: 'text', query: e.target.value }));
+		dispatch(getProductsByFilter({ type: 'text', query: e.target.value })); // gọi api lấy sản phẩm theo từ khóa
 	};
 
-	const handleCategory = e => {
-		resetState();
+	const handleCategory = e => { // sự kiện khi user nhập vào form
+		resetState(); // xóa dữ liệu cũ
 
-		const currentCategoryChecked = e.target.value;
-		const allCategoriesChecked = [...categoryIds];
-		const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked);
+		const currentCategoryChecked = e.target.value; // lấy dữ liệu mới
+		const allCategoriesChecked = [...categoryIds]; // lấy dữ liệu cũ
+		const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked); // tìm index của categoryIds 
 
 		let updatedCategoryIds;
-		if (indexFound === -1) {
+		if (indexFound === -1) { // nếu indexFound không tồn tại
 			// add
-			updatedCategoryIds = [...categoryIds, currentCategoryChecked];
-			setCategoryIds(updatedCategoryIds);
-		} else {
+			updatedCategoryIds = [...categoryIds, currentCategoryChecked]; // lấy dữ liệu cũ
+			setCategoryIds(updatedCategoryIds); // lấy dữ liệu mới
+		} else { // nếu indexFound tồn tại
 			// remove
-			updatedCategoryIds = [...categoryIds];
-			updatedCategoryIds.splice(indexFound, 1);
-			setCategoryIds(updatedCategoryIds);
+			updatedCategoryIds = [...categoryIds]; // lấy dữ liệu cũ
+			updatedCategoryIds.splice(indexFound, 1); // xóa phần tử tại indexFound
+			setCategoryIds(updatedCategoryIds); // lấy dữ liệu mới
 		}
 
 		dispatch(
-			getProductsByFilter({ type: 'category', query: updatedCategoryIds })
+			getProductsByFilter({ type: 'category', query: updatedCategoryIds }) // gọi api lấy sản phẩm theo danh mục
 		);
 	};
 
-	const resetState = () => {
+	const resetState = () => { // xóa dữ liệu cũ
 		setText('');
 		setCategoryIds([]);
 	};

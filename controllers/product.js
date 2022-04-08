@@ -5,6 +5,7 @@ const fs = require('fs');
 // import rồi mới sử dụng được nha
 exports.create = async (req, res) => {
 	const { filename } = req.file; // req.file là một đối tượng của multer
+	// mình sẽ lấy ra tên của file đó để gán vào biến filename
 	const {
 		productName, 
 		productDesc,
@@ -12,15 +13,16 @@ exports.create = async (req, res) => {
 		productCategory,
 		productQty,
 	} = req.body; // req.body là một đối tượng của body-parser
+	// mình sẽ lấy các kết quả trả về từ body-parser và gán vào các biến
 
 	try {
 		let product = new Product(); // khởi tạo một đối tượng mới
-		product.fileName = filename;
-		product.productName = productName;
-		product.productDesc = productDesc;
-		product.productPrice = productPrice;
-		product.productCategory = productCategory;
-		product.productQty = productQty;
+		product.fileName = filename; // gán tên file vào biến fileName trong db
+		product.productName = productName; // gán tên sản phẩm vào biến productName trong db
+		product.productDesc = productDesc; // gán mô tả sản phẩm vào biến productDesc trong db
+		product.productPrice = productPrice; // gán giá sản phẩm vào biến productPrice trong db
+		product.productCategory = productCategory; // gán danh mục sản phẩm vào biến productCategory trong db
+		product.productQty = productQty; // gán số lượng sản phẩm vào biến productQty trong db
 
 		await product.save(); // lưu vào database
 

@@ -2,6 +2,9 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { jwtSecret, jwtExpire } = require('../config/keys');
+const {OAuth2Client} = require('google-auth-library');
+
+const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.signupController = async (req, res) => {
     const { username, email, password } = req.body;
@@ -74,3 +77,4 @@ exports.signinController = async (req, res) => {
         });
     }
 };
+

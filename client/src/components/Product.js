@@ -4,21 +4,21 @@ import { getProduct } from '../redux/actions/productActions';
 import { addToCart } from '../redux/actions/cartActions';
 
 const Product = ({ match, history }) => {
-	const { productId } = match.params;
-	const dispatch = useDispatch();
+	const { productId } = match.params; // lấy id từ url
+	const dispatch = useDispatch(); // để gọi action
 
-	useEffect(() => {
-		dispatch(getProduct(productId));
-	}, [dispatch, productId]);
+	useEffect(() => { // gọi api
+		dispatch(getProduct(productId)); // lấy sản phẩm theo id
+	}, [dispatch, productId]); // khi dispatch thì gọi api
 
-	const { product } = useSelector(state => state.products);
+	const { product } = useSelector(state => state.products); // lấy dữ liệu từ redux
 
-	const handleAddToCart = () => {
-		dispatch(addToCart(product));
+	const handleAddToCart = () => { // sự kiện khi user nhấn nút add to cart
+		dispatch(addToCart(product)); // gọi action add to cart
 	};
 
-	const handleGoBackBtn = () => {
-		history.goBack();
+	const handleGoBackBtn = () => { // sự kiện khi user nhấn nút back
+		history.goBack(); // quay lại trang trước
 	};
 
 	return (

@@ -6,20 +6,26 @@ import { showErrorMsg, showSuccessMsg } from '../helpers/message';
 import { showLoading } from '../helpers/loading';
 import { isAuthenticated } from '../helpers/auth';
 import { Link, useHistory } from 'react-router-dom';
-import { signup } from '../api/auth';
+import { signup,google } from '../api/auth';
+import GoogleLogin from 'react-google-login';
+import axios from 'axios';
 
 const Signup = () => {
-    let history = useHistory();
+    
 
-    useEffect(() => {
+    let history = useHistory(); // để điều hướng sau khi đăng ký thành công
+
+    useEffect(() => { // để kiểm tra xem user đã đăng nhập chưa
         if (isAuthenticated() && isAuthenticated().role === 1) {
             history.push('/admin/dashboard');
         } else if (isAuthenticated() && isAuthenticated().role === 0) {
             history.push('/user/dashboard');
         }
-    }, [history]);
+    }, [history]); // 
 
-    const [formData, setFormData] = useState({
+    //  formData là 1 object để lưu trữ dữ liệu của form khi user nhập vào
+    // setFormData là 1 function để set lại formData
+    const [formData, setFormData] = useState({ // useState là hook để lưu trữ dữ liệu
         username: '',
         email: '',
         password: '',
@@ -27,8 +33,9 @@ const Signup = () => {
         successMsg: false,
         errorMsg: false,
         loading: false,
-    });
-    const {
+    }); // để lưu trữ dữ liệu được nhập vào
+
+    const { 
         username,
         email,
         password,
@@ -36,17 +43,18 @@ const Signup = () => {
         successMsg,
         errorMsg,
         loading,
-    } = formData;
+    } = formData; // để lấy dữ liệu từ formData
+
     /****************************
      * EVENT HANDLERS
      ***************************/
-    const handleChange = (evt) => {
+    const handleChange = (evt) => { // sự kiện khi user nhập vào form
         //console.log(evt);
         setFormData({
-            ...formData,
-            [evt.target.name]: evt.target.value,
-            successMsg: '',
-            errorMsg: '',
+            ...formData, // lấy dữ liệu cũ
+            [evt.target.name]: evt.target.value, // lấy dữ liệu mới
+            successMsg: '', // xóa successMsg
+            errorMsg: '', // xóa errorMsg
         });
     };
 
@@ -55,10 +63,7 @@ const Signup = () => {
 
         // client-side validation
         if (
-            isEmpty(username) ||
-            isEmpty(email) ||
-            isEmpty(password) ||
-            isEmpty(password2)
+            isEmpty(username) || isEmpty(email) || isEmpty(password) || isEmpty(password2)
         ) {
             setFormData({
                 ...formData,
@@ -80,8 +85,8 @@ const Signup = () => {
 
             setFormData({ ...formData, loading: true });
 
-            signup(data)
-                .then((response) => {
+            signup(data) // gọi api đăng ký
+                .then((response) => { // nếu thành công
                     console.log('Axios signup success: ', response);
                     setFormData({
                         username: '',
@@ -92,7 +97,7 @@ const Signup = () => {
                         successMsg: response.data.successMessage,
                     });
                 })
-                .catch((err) => {
+                .catch((err) => { // nếu thất bại
                     console.log('Axios signup error: ', err);
                     setFormData({
                         ...formData,
@@ -103,6 +108,16 @@ const Signup = () => {
         }
     };
 
+    const googleSuccess = (res) => {
+        alert("Chưa xong má ơi");
+        
+    
+    };
+
+    const googleFailure = (response) => {
+        console.log('Login failed: ',response);
+    };
+    
     /****************************
      * VIEWS
      ***************************/
@@ -178,6 +193,15 @@ const Signup = () => {
                     Signup
                 </button>
             </div>
+            <hr/>
+            <h1>{process.env.REACT_APP_GOOGLE_CLIENT_ID}</h1>
+            <GoogleLogin
+            clientId = '265377345213-imj5ae78iuhpn9k6k9jlu8oiukvna2fj.apps.googleusercontent.com'
+            buttonText="Login with Google"
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy={'single_host_origin'}
+            ></GoogleLogin>
             {/* already have account */}
             <p className='text-center text-white'>
                 Have an account? <Link to='/signin'>Log In</Link>

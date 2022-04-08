@@ -5,9 +5,9 @@ import { ADD_TO_CART } from '../redux/constants/cartConstants';
 import { deleteFromCart } from '../redux/actions/cartActions';
 
 const Cart = ({ history }) => {
-	const { cart } = useSelector(state => state.cart);
+	const { cart } = useSelector(state => state.cart); // lấy dữ liệu từ redux
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch(); // để gọi action
 
 	const handleGoBackBtn = () => {
 		history.goBack();

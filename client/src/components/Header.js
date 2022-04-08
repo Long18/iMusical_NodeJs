@@ -79,8 +79,8 @@ const Header = ({ history }) => {
 					{isAuthenticated() && isAuthenticated().role === 0 && (
 						<Fragment>
 							<li className='nav-item'>
-								<Link to='/user/dashboard' className='nav-link'>
-									<i className='fas fa-home'></i> Dashboard
+								<Link to='/' className='nav-link'>
+									<i className='fas fa-home'></i> Home
 								</Link>
 							</li>
 							<li className='nav-item'>

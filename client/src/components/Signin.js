@@ -8,9 +8,9 @@ import isEmail from 'validator/lib/isEmail';
 import { signin } from '../api/auth';
 
 const Signin = () => {
-    let history = useHistory();
+    let history = useHistory(); // để điều hướng sau khi đăng ký thành công
 
-    useEffect(() => {
+    useEffect(() => { // để kiểm tra xem user đã đăng nhập chưa
         if (isAuthenticated() && isAuthenticated().role === 1) {
             history.push('/admin/dashboard');
         } else if (isAuthenticated() && isAuthenticated().role === 0) {
@@ -18,59 +18,59 @@ const Signin = () => {
         }
     }, [history]);
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({ // useState là hook để lưu trữ dữ liệu
         email: '',
         password: '',
         errorMsg: false,
         loading: false,
-    });
+    }); // để lưu trữ dữ liệu được nhập vào
 
-    const { email, password, errorMsg, loading } = formData;
+    const { email, password, errorMsg, loading } = formData; // để lấy dữ liệu từ formData
 
     /****************************
      * EVENT HANDLERS
      ***************************/
-    const handleChange = (evt) => {
+    const handleChange = (evt) => { // sự kiện khi user nhập vào form
         setFormData({
-            ...formData,
-            [evt.target.name]: evt.target.value,
-            errorMsg: '',
+            ...formData, // lấy dữ liệu cũ
+            [evt.target.name]: evt.target.value, // lấy dữ liệu mới
+            errorMsg: '', // xóa errorMsg
         });
     };
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = (evt) => { // sự kiện khi user nhấn nút submit
         evt.preventDefault();
 
         // client-side validation
-        if (isEmpty(email) || isEmpty(password)) {
-            setFormData({
-                ...formData,
-                errorMsg: 'All fields are required',
+        if (isEmpty(email) || isEmpty(password)) { // nếu email hoặc password rỗng
+            setFormData({ 
+                ...formData, // lấy dữ liệu cũ
+                errorMsg: 'All fields are required', // thông báo lỗi
             });
-        } else if (!isEmail(email)) {
+        } else if (!isEmail(email)) { // nếu email không hợp lệ
             setFormData({
-                ...formData,
-                errorMsg: 'Invalid email',
+                ...formData, // lấy dữ liệu cũ
+                errorMsg: 'Invalid email', // thông báo lỗi 
             });
         } else {
-            const { email, password } = formData;
-            const data = { email, password };
+            const { email, password } = formData; // lấy dữ liệu từ formData
+            const data = { email, password }; // tạo data
 
-            setFormData({ ...formData, loading: true });
+            setFormData({ ...formData, loading: true }); // thay đổi loading
 
-            signin(data)
-                .then((response) => {
+            signin(data) // gọi api đăng nhập
+                .then((response) => { // nếu thành công
                     setAuthentication(response.data.token, response.data.user);
 
-                    if (isAuthenticated() && isAuthenticated().role === 1) {
+                    if (isAuthenticated() && isAuthenticated().role === 1) { // nếu user là admin
                         console.log('Redirecting to admin dashboard');
                         history.push('/admin/dashboard');
-                    } else {
+                    } else { // nếu là user
                         console.log('Redirecting to user dashboard');
-                        history.push('/user/dashboard');
+                        history.push('/');
                     }
                 })
-                .catch((err) => {
+                .catch((err) => { // nếu thất bại
                     console.log('signin api function error: ', err);
                     setFormData({
                         ...formData,

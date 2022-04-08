@@ -6,19 +6,19 @@ import { getProductsByCount } from '../redux/actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = () => {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch(); // để gọi action
 
-	useEffect(() => {
-		dispatch(getNewArrivals());
-	}, [dispatch]);
+	useEffect(() => { // gọi api
+		dispatch(getNewArrivals()); // lấy sản phẩm mới về
+	}, [dispatch]); // lấy sản phẩm mới về
 
-	useEffect(() => {
-		dispatch(getProductsByCount());
-	}, [dispatch]);
+	useEffect(() => { // gọi api
+		dispatch(getProductsByCount()); // lấy sản phẩm mới về
+	}, [dispatch]); // lấy sản phẩm mới về 
 
-	const { newArrivals } = useSelector(state => state.filters);
-	const { products } = useSelector(state => state.products);
-	const { loading } = useSelector(state => state.loading);
+	const { newArrivals } = useSelector(state => state.filters); // lấy dữ liệu từ redux
+	const { products } = useSelector(state => state.products); // lấy dữ liệu từ redux
+	const { loading } = useSelector(state => state.loading); // lấy dữ liệu từ redux
 
 	return (
 		<section className='home-page'>

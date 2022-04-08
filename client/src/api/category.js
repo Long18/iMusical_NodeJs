@@ -7,8 +7,10 @@ export const createCategory = async (formData) => {
         },
     };
 
+    // Truyền data và config vào api category
     const response = await axios.post('/api/category', formData, config);
 
+    // Nếu thành công thì trả về 
     return response;
 };
 
