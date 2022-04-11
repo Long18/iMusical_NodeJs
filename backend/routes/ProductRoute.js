@@ -29,13 +29,13 @@ router
   .delete(deleteProduct)
   .get(getSingleProduct);
 
-// router
-//   .route("/product/review")
-//   .post(isAuthenticatedUser, createProductReview);
+router
+  .route("/product/review")
+  .post(isAuthenticatedUser, createProductReview);
 
-// router
-//   .route("/reviews")
-//   .get(getSingleProductReviews)
-//   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteReview);
+router
+  .route("/reviews")
+  .get(getSingleProductReviews)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteReview);
 
 module.exports = router;

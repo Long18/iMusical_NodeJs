@@ -19,14 +19,12 @@ dotenv.config({
 // Route imports
 const product = require("./Routes/ProductRoute");
 const user = require("./Routes/UserRoute");
-// const order = require("./Routes/OrderRoute");
+const order = require("./Routes/OrderRoute");
 // const payment = require("./Routes/PaymentRoute");
 
 app.use("/api/v1", product);
-
 app.use("/api/v1", user);
-
-// app.use("/api/v1",order);
+app.use("/api/v1",order);
 
 // app.use("/api/v1",payment);
 
