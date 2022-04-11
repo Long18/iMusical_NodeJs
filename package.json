@@ -8,7 +8,7 @@
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js"
   },
-  "author": "shahriar sajeeb",
+  "author": "isekai team",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
