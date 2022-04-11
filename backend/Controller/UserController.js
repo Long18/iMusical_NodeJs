@@ -1,10 +1,11 @@
 const User = require("../models/UserModel");
 const ErrorHandler = require("../utils/ErrorHandler.js");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const Features = require("../utils/Features");
+const sendToken = require("../utils/jwtToken.js");
 const sendMail = require("../utils/sendMail.js");
-const sendToken = require("../utils/jwtToken");
 const crypto = require("crypto");
+// const cloudinary = require("cloudinary");
+
 
 // Register user
 exports.createUser = catchAsyncErrors(async (req, res, next) => {
@@ -21,8 +22,8 @@ exports.createUser = catchAsyncErrors(async (req, res, next) => {
     email,
     password,
     avatar: {
-      public_id: "https://test1.com", //myCloud.public_id
-      url: "https://test1.com", //myCloud.secure_url
+      public_id: "https://test.com", //myCloud.public_id
+      url: "https://test.com", //myCloud.secure_url
     },
   });
 
@@ -51,7 +52,6 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
       new ErrorHandler("User is not find with this email & password", 401)
     );
   }
-  const token = user.getJwtToken();
 
   sendToken(user, 201, res);
 });
