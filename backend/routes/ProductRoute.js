@@ -9,26 +9,29 @@ const {
   getSingleProductReviews,
   deleteReview,
 } = require("../controller/ProductController");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+//const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const router = express.Router();
 
 router.route("/products").get(getAllProducts);
 
 router
-  .route("/product/new")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
+  .route("/product/new").post(createProduct);
+//   .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
 
 router
-  .route("/product/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct)
-  .get(getSingleProduct);
+  .route("/product/:id").put(updateProduct);
+//   .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
+//   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct)
+//   .get(getSingleProduct);
 
-router.route("/product/review").post(isAuthenticatedUser, createProductReview);
+router.route("/product/:id")
+.delete(deleteProduct)
+.get(getSingleProduct);
+// router.route("/product/review").post(isAuthenticatedUser, createProductReview);
 
-router
-  .route("/reviews")
-  .get(getSingleProductReviews)
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteReview);
+// router
+//   .route("/reviews")
+//   .get(getSingleProductReviews)
+//   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteReview);
  
 module.exports = router;

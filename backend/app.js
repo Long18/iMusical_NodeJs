@@ -17,18 +17,18 @@ dotenv.config({
 })
 
 // Route imports
-const product = require("./routes/ProductRoute");
-const user = require("./routes/UserRoute");
-const order = require("./routes/OrderRoute");
-const payment = require("./routes/PaymentRoute");
+const product = require("./Routes/ProductRoute");
+// const user = require("./Routes/UserRoute");
+// const order = require("./Routes/OrderRoute");
+// const payment = require("./Routes/PaymentRoute");
 
 app.use("/api/v1",product);
 
-app.use("/api/v1",user);
+// app.use("/api/v1",user);
 
-app.use("/api/v1",order);
+// app.use("/api/v1",order);
 
-app.use("/api/v1",payment);
+// app.use("/api/v1",payment);
 
 
 // it's for errorHandeling
