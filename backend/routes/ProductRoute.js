@@ -26,8 +26,8 @@ router
 
 router
   .route("/product/:id")
-  .delete(deleteProduct)
   .get(getSingleProduct);
+  //.delete(deleteProduct)
 
 router
   .route("/product/review")

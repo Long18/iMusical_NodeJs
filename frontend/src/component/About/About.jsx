@@ -7,7 +7,7 @@ import Loading from "../../more/Loader";
 import MetaData from "../../more/Metadata";
 import "./About.css";
 import BottomTab from "../../more/BottomTab";
-import bgabout from "../../Assets/bg-h7.jpg";
+import bgabout from "../../Assets/guitar.png";
 
 const About = () => {
     const { loading } = useSelector(
@@ -41,7 +41,7 @@ const About = () => {
                   lineHeight: "1.2",
                 }}
               >
-                Welcome to Nest
+                Welcome to iMusic
               </span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

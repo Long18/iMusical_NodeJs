@@ -41,6 +41,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
   const resultPerPage = 7;
 
+  // Count "product" Documents in the collection
   const productsCount = await Product.countDocuments();
 
   const feature = new Features(Product.find(), req.query)
@@ -97,6 +98,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     runValidators: true,
     useUnified: false,
   });
+
   res.status(200).json({
     success: true,
     product,
@@ -155,12 +157,12 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
     (rev) => rev.user.toString() === req.user._id.toString()
   );
 
-  if (isReviewed) {
+  if (isReviewed) { // if user has already reviewed the product
     product.reviews.forEach((rev) => {
       if (rev.user.toString() === req.user._id.toString())
         (rev.rating = rating), (rev.comment = comment);
     });
-  } else {
+  } else { // if user has not reviewed the product
     product.reviews.push(review);
     product.numOfReviews = product.reviews.length;
   }

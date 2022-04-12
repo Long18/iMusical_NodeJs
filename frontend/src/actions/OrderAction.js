@@ -10,7 +10,7 @@ import {
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
 } from "../constans/OrderConstans";
-import { CLEAR_ERRORS } from "../constans/userContans";
+import { CLEAR_ERRORS } from "../constans/UserContans";
 
 // Create Order
 export const createOrder = (order) => async (dispatch) => {

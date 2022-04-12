@@ -32,6 +32,7 @@ class Features {
 
     pagination(resultPerPage){
         const currentPage = Number(this.queryStr.page) || 1;
+        // Number of object will be skip
         const skip = resultPerPage *(currentPage - 1); 
 
         this.query= this.query.limit(resultPerPage).skip(skip);

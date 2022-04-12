@@ -1,10 +1,13 @@
+//Defaut require
 const express = require("express");
 const app = express();
-const ErrorHandler = require("./middleware/error");
+
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+
+const ErrorHandler = require("./middleware/error");
 
 app.use(express.json());
 app.use(cookieParser());

@@ -9,7 +9,7 @@ import {
 import Footer from "../../Footer";
 import MetaData from "../../more/Metadata";
 import Header from "../Home/Header";
-import "./Productdetails.css";
+import "./ProductDetails.css";
 import { Rating } from "@material-ui/lab";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -123,7 +123,7 @@ const ProductDetails = ({ match }) => {
                 display: "flex",
               }}
             >
-              <h1>{`${product.price}`}</h1>
+              <h1>{`${product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}`}</h1>
               <h1 className="discountPrice">
                 {product.offerPrice > 0 ? `${product.offerPrice}` : ""}
               </h1>
