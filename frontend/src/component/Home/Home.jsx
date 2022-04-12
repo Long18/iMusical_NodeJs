@@ -12,6 +12,7 @@ import MetaData from "../../more/Metadata";
 import Footer from "../../Footer";
 import BottomTab from "../../more/BottomTab";
 import guitarImg from "../../Assets/guitar.png";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     dispatch(getProduct());
@@ -106,6 +107,17 @@ const Home = () => {
           ))}
       </div>
       <Footer />
+      <ToastContainer 
+       position="bottom-center"
+       autoClose={5000}
+       hideProgressBar={false}
+       newestOnTop={false}
+       closeOnClick
+       rtl={false}
+       pauseOnFocusLoss
+       draggable
+       pauseOnHover
+       />
       <BottomTab />
     </>
   );

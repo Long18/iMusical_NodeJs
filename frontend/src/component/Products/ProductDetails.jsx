@@ -21,8 +21,8 @@ import BottomTab from "../../more/BottomTab";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
-
-  let priceVND = 0;
+  
+  let price;
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -82,15 +82,15 @@ const ProductDetails = ({ match }) => {
   const addToCartHandler = () => {
     if (product.Stock > 0) {
       dispatch(addItemsToCart(match.params.id, quantity));
-      alert.success("Product Added to cart");
+      toast.success("Product Added to cart");
     } else {
-      alert.error("Product stock limited");
+      toast.error("Product stock limited");
     }
   };
 
   const addToFavouriteHandler = () => {
     dispatch(addFavouriteItemsToCart(match.params.id, quantity));
-    alert.success("Product Added to Favourites");
+    toast.success("Product Added to Favourites");
   };
 
   return (
@@ -125,8 +125,9 @@ const ProductDetails = ({ match }) => {
                 display: "flex",
               }}
             >
-              <input type="hidden" value={priceVND=product.price} />
-              <h1>{`${priceVND.toLocaleString('vi', {style : 'currency', currency : 'VND'})}`}</h1>
+            {/* <input type="hidden" value={price = product.price} />
+              <input type="hidden" value={price == product.price ? price.toLocaleString('vi', {style : 'currency', currency : 'VND'}) : product.price} /> */}
+              <h1>{`${product.price}đ`}</h1>
               <h1 className="discountPrice">
                 {product.offerPrice > 0 ? `${product.offerPrice}` : ""}
               </h1>
@@ -134,9 +135,9 @@ const ProductDetails = ({ match }) => {
             <div className="detailsBlock-3-1">
               <span className="quantity">Quantity</span>
               <div className="detailsBlock-3-1-1">
-                <button onClick={decreaseQuantity}>-</button>
+                <button onClick={decreaseQuantity} style={{borderRadius: "7px"}}>-</button>
                 <input type="number" readOnly value={quantity} />
-                <button onClick={increaseQuantity}>+</button>
+                <button onClick={increaseQuantity} style={{borderRadius: "7px"}}>+</button>
               </div>{" "}
             </div>
             <p className="stock__meta" style={{ paddingBottom: ".5vmax" }}>
@@ -215,6 +216,7 @@ const ProductDetails = ({ match }) => {
                     border: "none",
                     cursor: "pointer",
                     background: "none",
+                    borderRadius: "7px",
                   }}
                 >
                   Add to Cart
@@ -339,6 +341,7 @@ const ProductDetails = ({ match }) => {
                 border: "none",
                 cursor: "pointer",
                 color: "#fff",
+                borderRadius: "7px",
               }}
               onClick={reviewSubmitHandler}
             >

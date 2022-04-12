@@ -14,6 +14,7 @@ import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStatio
 import { Country, State } from "country-state-city";
 import { saveShippingInfo } from "../../actions/CartAction";
 import BottomTab from "../../more/BottomTab";
+import { ToastContainer, toast } from "react-toastify";
 
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();
@@ -32,8 +33,8 @@ const Shipping = ({ history }) => {
   const shippingSubmit = (e) => {
     e.preventDefault();
 
-    if (phoneNo.length < 11 || phoneNo.length > 11) {
-      alert.error("Phone Number should be 11digits");
+    if (phoneNo.length < 9) {
+      toast.error("Phone Number should be 9digits");
       return;
     }
     dispatch(saveShippingInfo({ address, state, country, phoneNo }));
@@ -125,6 +126,17 @@ const Shipping = ({ history }) => {
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <BottomTab />
     </>
   );

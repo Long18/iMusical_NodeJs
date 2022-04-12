@@ -81,7 +81,7 @@ const ConfirmOrder = ({ history }) => {
                    {item.name}
                  </Link>{" "}
                  <span>
-                   {item.quantity} X ${item.price} ={" "}
+                   {item.quantity} X {item.price} ={" "}
                    <input type="hidden" value={priceVND = item.price * item.quantity}/>
                    <b>{priceVND.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</b>
                    
@@ -101,11 +101,11 @@ const ConfirmOrder = ({ history }) => {
               <div>
                 <div>
                   <p>Subtotal:</p>
-                  <span>${subtotal.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                  <span>{subtotal.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                 </div>
                 <div>
                   <p>Shipping Charges:</p>
-                  <span>${shippingCharges}</span>
+                  <span>{shippingCharges}</span>
                 </div>
                 <div>
                 </div>
@@ -115,10 +115,10 @@ const ConfirmOrder = ({ history }) => {
                 <p>
                   <b>Total:</b>
                 </p>
-                <span>${totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                <span>{totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
               </div>
                   
-              <button onClick={proceedToPayment}>Proceed To Payment</button>
+              <button className="OrderConfirm__Button" onClick={proceedToPayment}>Proceed To Payment</button>
             </div>
           </div>
         </div>

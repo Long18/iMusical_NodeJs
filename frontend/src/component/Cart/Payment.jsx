@@ -100,13 +100,13 @@ const Payment = ({ history }) => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
   }, [dispatch, error, alert]);

@@ -39,6 +39,7 @@
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
     font: 300 0.7vmax "Roboto";
+    border-radius: 9px;
   }
   .cartHeader > p {
     margin: 10px;
@@ -68,6 +69,7 @@
     cursor: pointer;
     color: white;
     transition: all 0.5s;
+    border-radius: 7px;
   }
   .cartInput > button:hover {
     background-color:#7B02EA;
@@ -121,6 +123,7 @@
     font: 300 0.8vmax "Roboto";
     margin: 1vmax 4vmax;
     cursor: pointer;
+    border-radius: 7px;
   }
   
   @media screen and (max-width: 600px) {
