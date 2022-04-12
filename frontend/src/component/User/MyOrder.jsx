@@ -72,7 +72,7 @@ const MyOrder = () => {
         itemsQty: item.orderItems.length === 0 ? 1 : item.orderItems.length,
         id: item._id,
         status: item.orderStatus,
-        amount: item.totalPrice,
+        amount: item.totalPrice * 22.88888888888,
       });
     });
 

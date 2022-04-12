@@ -52,6 +52,9 @@ function App() {
         families: ["Roboto", "sans-serif", "Roboto Condensed"],
       },
     });
+    Store.dispatch(loadUser());
+
+    getStripeApiKey();
   }, []);
 
   return (

@@ -23,3 +23,14 @@ In Terminal:
     - Run: cd backend and **npm start** -> to run server
 
     - Run: cd frontend and **npm start**  -> to run client
+
+
+We have 3 API to use:
+ - EmailJS
+ - Stripe
+ - Cloudinary
+
+Go into that website, create an account, and then go to the API section.
+After got API key, go to config/.env and change it to your API key.
+
+    Here is website to test Cart: https://stripe.com/docs/testing

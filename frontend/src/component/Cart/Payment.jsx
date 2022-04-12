@@ -11,7 +11,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import "./payment.css";
+import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -133,7 +133,7 @@ const Payment = ({ history }) => {
 
           <input
             type="submit"
-            value={`Pay - ${orderInfo && orderInfo.totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}`}
+            value={`Pay - ${orderInfo && orderInfo.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`}
             ref={payBtn}
             className="paymentFormBtn"
           />

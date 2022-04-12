@@ -25,7 +25,7 @@ const ConfirmOrder = ({ history }) => {
       // eslint-disable-next-line
     const shippingCharges = productPrice > 99 ? 0 : 50;
     
-    const totalPrice = subtotal + shippingCharges;
+    const totalPrice = (subtotal + shippingCharges)/22.88888888888;
   
     const address = `${shippingInfo.address}, ${shippingInfo.state}, ${shippingInfo.country}`;
   
@@ -115,7 +115,48 @@ const ConfirmOrder = ({ history }) => {
                 <p>
                   <b>Total:</b>
                 </p>
-                <span>{totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                <span>{totalPrice.toLocaleString('en-US',{ style: 'currency', currency: 'USD' })}</span>
+              </div>
+
+              <div className="payment__method">
+                <span style={{
+                  textAliign: "center",
+                  display: "block",
+                  fontWeight: "600",
+                }}>Select a payment method</span>
+                <form>
+                  <div style={{
+                    justifyContent: "unset",
+                    padding: "10px 0",
+                  }}>
+                    <input type="checkbox" name="Payment_method_Cash" required/>
+                    <span style={{
+                      paddingLeft: "5px",
+                    }}>Cash on delivery</span>
+
+                  </div>
+                  <div style={{
+                    justifyContent: "unset",
+                    padding: "10px 0",
+                  }}>
+                    <input type="checkbox" name="Payment_method_Momo" required/>
+                    <span style={{
+                      paddingLeft: "5px",
+                    }}>Momo payment</span>
+
+                  </div>
+                  <div style={{
+                    justifyContent: "unset",
+                    padding: "10px 0",
+                  }}>
+                    <input type="checkbox" name="Payment_method_Momo" required/>
+                    <span style={{
+                      paddingLeft: "5px",
+                    }}>Ăn quỵt</span>
+
+                  </div>
+                </form>
+
               </div>
                   
               <button className="OrderConfirm__Button" onClick={proceedToPayment}>Proceed To Payment</button>

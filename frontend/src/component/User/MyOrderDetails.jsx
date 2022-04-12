@@ -12,8 +12,6 @@ import BottomTab from "../../more/BottomTab";
 const MyOrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.myOrderDetails);
 
-  let priceVND = 0;
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,7 +74,7 @@ const MyOrderDetails = ({ match }) => {
 
                 <div>
                   <p>Amount:</p>
-                  <span>{order.totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'}) && order.totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                  <span>{order.totalPrice && order.totalPrice}</span>
                 </div>
               </div>
 
@@ -108,10 +106,8 @@ const MyOrderDetails = ({ match }) => {
                         {item.name}
                       </Link>{" "}
                       <span>
-                        {item.quantity} X {item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})} ={" "}
-                        <input type="hidden" value={priceVND=item.price * item.quantity} />
-                        <b>{priceVND.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</b>
-                        
+                        {item.quantity} X ${item.price} ={" "}
+                        <b>${item.price * item.quantity}</b>
                       </span>
                     </div>
                   ))}
