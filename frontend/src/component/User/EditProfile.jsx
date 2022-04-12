@@ -7,6 +7,7 @@ import { clearErrors, loadUser, updateProfile } from "../../actions/UserAction";
 import Loading from "../../more/Loader";
 import MetaData from "../../more/Metadata";
 import { UPDATE_PROFILE_RESET } from "../../constans/UserContans";
+import { ToastContainer, toast } from "react-toastify";
 
 const EditProfile = ({history}) => {
     const dispatch = useDispatch();
@@ -54,12 +55,12 @@ const EditProfile = ({history}) => {
       }
 
     if (error) {
-      alert(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert("Profile updated successfully");
+      toast.success("Profile updated successfully");
       dispatch(loadUser());
 
       history.push("/me");
@@ -124,7 +125,17 @@ const EditProfile = ({history}) => {
                 />
               </form>
             </div>
-          </div>
+          </div><ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
             </>
         )}
         </>

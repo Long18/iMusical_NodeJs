@@ -11,6 +11,7 @@ import Header from "./Header";
 import MetaData from "../../more/Metadata";
 import Footer from "../../Footer";
 import BottomTab from "../../more/BottomTab";
+import guitarImg from "../../Assets/guitar.png";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -29,12 +30,14 @@ const Home = () => {
       <MetaData title="Home" />
       <Header />
       {/* Carousel */}
+
       <div className="banner">
         <Carousel>
           <img src={bg} className="bgImg" />
           <img src={bg1} className="bgImg" />
           <img src={bg2} className="bgImg" />
         </Carousel>
+
         <div className="home__content">
           <div>
             <h2
@@ -42,6 +45,7 @@ const Home = () => {
                 fontSize: "4.5em",
                 fontFamily: "Poppins,sans-serif",
                 color: "#fff",
+                paddingTop: "200px",
               }}
             >
               Musical Instruments
@@ -55,6 +59,7 @@ const Home = () => {
                 fontFamily: "Poppins,sans-serif",
                 color: "#fff",
                 lineHeight: ".7",
+                paddingBottom: "20px",
               }}
             >
               Collection
@@ -80,6 +85,16 @@ const Home = () => {
               </button>
             </a>
           </div>
+          <img
+            src={guitarImg}
+            alt="guitar"
+            style={{
+              height: "700px",
+              width: "700px",
+              marginTop: "-300px",
+              marginLeft: "1800px",
+            }}
+          />
         </div>
       </div>
 

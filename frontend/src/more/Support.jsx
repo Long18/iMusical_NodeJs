@@ -14,7 +14,7 @@ const Support = ({history}) => {
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        emailjs.sendForm('service_hc4y6hp', 'template_q6oankt', formRef.current, 'user_XiIxNsDzs1ebEgXJcyD1U')
+        emailjs.sendForm('service_oe4db7m', 'template_otkqadt', formRef.current, 'gE_3AJPaMmXXoDXH7')
       .then((result) => {
           console.log(result.text);
           setDone(true)
