@@ -33,7 +33,7 @@ useEffect(() => {
                     flexDirection:"column"
                 }}>
                     <h1 style={{
-                        fontFamily: "Poppins,sans-serif",opacity:"1",
+                        fontFamily: "'Roboto', sans-serif",opacity:"1",
                         fontSize:"2vmax"
                     }}>My Profile</h1>
                     <img src={user.avatar.url} alt={user.name} className="profile__img" />

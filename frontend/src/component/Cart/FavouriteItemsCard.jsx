@@ -16,7 +16,7 @@ const FavouriteItemsCard = ({item, deleteFavouriteItems}) => {
         <p onClick={() => deleteFavouriteItems(item.product)}>Remove</p>
         <Link to={`/product/${item.product}`} style={{
             fontSize:"300 0.9vmax",
-            fontFamily:"cursive",
+            fontFamily:"'Roboto', sans-serif",
         }}>{item.name}</Link>
         </div>
 

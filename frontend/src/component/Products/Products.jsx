@@ -65,7 +65,7 @@ const Products = ({ match }) => {
                   borderBottom: "1px solid rgba(21,21,21,0.5)",
                   width: "20vmax",
                   fontSize: "1.4vmax",
-                  fontFamily: "Poppins,sans-serif",
+                  fontFamily: "'Roboto', sans-serif",
                   margin: "3vmax auto",
                   color: "rgb(0, 0, 0, 0.7)",
                 }}

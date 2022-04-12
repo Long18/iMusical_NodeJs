@@ -49,7 +49,7 @@ function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
+        families: ["Roboto", "sans-serif", "Roboto Condensed"],
       },
     });
   }, []);
