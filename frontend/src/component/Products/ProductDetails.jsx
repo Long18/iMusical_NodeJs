@@ -22,6 +22,8 @@ import BottomTab from "../../more/BottomTab";
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
 
+  let priceVND = 0;
+
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
@@ -123,7 +125,8 @@ const ProductDetails = ({ match }) => {
                 display: "flex",
               }}
             >
-              <h1>{`${product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}`}</h1>
+              <input type="hidden" value={priceVND=product.price} />
+              <h1>{`${priceVND.toLocaleString('vi', {style : 'currency', currency : 'VND'})}`}</h1>
               <h1 className="discountPrice">
                 {product.offerPrice > 0 ? `${product.offerPrice}` : ""}
               </h1>
