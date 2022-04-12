@@ -11,7 +11,7 @@
   .favouritesButton{
     padding: 12px 25px;
     border: none;
-    background-color: #3BB77E;
+    background-color: #7B02EA;
     color: #fff;
     cursor: pointer;
   }
@@ -33,7 +33,7 @@
   }
   
   .FavouriteItemsCard > div > p {
-    color: #3BB77E;
+    color: #7B02EA;
     font: 100 0.8vmax "Roboto";
     cursor: pointer;
   }

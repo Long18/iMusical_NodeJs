@@ -68,9 +68,9 @@ const Home = () => {
                   width: "135px",
                   height: "50px",
                   border: "none",
-                  background: "#3BB77E",
+                  background: "#7B02EA",
                   margin: "10px 0",
-                  fontSize: "1.2vmax",
+                  fontSize: "0.8vmax",
                   color: "#fff",
                   cursor: "pointer",
                 }}

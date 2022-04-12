@@ -25,6 +25,10 @@ const LoginSignup = ({ history, location }) => {
     name: "",
     email: "",
     password: "",
+    // avatar: {
+    //   public_id:"",
+    //   url: "",
+    // },
   });
 
   const { name, email, password } = user;
@@ -66,7 +70,18 @@ const LoginSignup = ({ history, location }) => {
 
       reader.readAsDataURL(e.target.files[0]);
     } else {
+      
+      //uploadImage(avatarPreview);
       setUser({ ...user, [e.target.name]: e.target.value });
+    }
+  };
+
+  const uploadImage = (base64EncodedImage) => {
+    console.log(base64EncodedImage);
+    try {
+      setUser({ ...user, avatar: { url: base64EncodedImage, public_id: base64EncodedImage } });
+    } catch (err) {
+      console.log(err);
     }
   };
 

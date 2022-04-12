@@ -10,13 +10,13 @@
   }
   .orderSuccess > svg {
     font-size: 7vmax;
-    color: #3BB77E;
+    color: #7B02EA;
   }
   .orderSuccess > p {
     font-size: 2vmax;
   }
   .orderSuccess > a {
-    background-color: #3BB77E;
+    background-color: #7B02EA;
     color: white;
     border: none;
     padding: 1vmax 3vmax;

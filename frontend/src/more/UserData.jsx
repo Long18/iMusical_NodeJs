@@ -109,7 +109,7 @@ const UserData = ({ user }) => {
 
   function logoutUser() {
     dispatch(logout());
-    alert("Logout Successfully");
+    //alert("Logout Successfully");
   }
 
   return (

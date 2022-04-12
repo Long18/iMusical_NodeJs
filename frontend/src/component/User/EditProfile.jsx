@@ -46,7 +46,6 @@ const EditProfile = ({history}) => {
     }
     reader.readAsDataURL(e.target.files[0]);
   };
-
   useEffect(() => {
       if(user){
           setName(user.name);

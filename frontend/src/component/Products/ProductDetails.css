@@ -59,7 +59,7 @@ p.noReviews {
 
 .detailsBlock-3-1-1>button {
     width: 100%;
-    background: #3BB77E;
+    background: #7B02EA;
     border: none;
     color: #fff;
     height: 20px;
@@ -114,7 +114,7 @@ input[type="number"] {
     }
 
     button.Home__button {
-        font-size: 2.1vmax !important;
+        font-size: 1.1vmax !important;
     }
 
     .CarouselItem {

@@ -53,7 +53,7 @@ const Support = ({history}) => {
                        border:"none",
                        outline:"none",
                        width:"100%",
-                       borderBottom:"1px solid #3BB77E",
+                       borderBottom:"1px solid #7B02EA",
                        margin:"10px 0",
                        fontSize:"1.2vmax",
                        height:"40px"
@@ -64,7 +64,7 @@ const Support = ({history}) => {
                        border:"none",
                        outline:"none",
                        width:"100%",
-                       borderBottom:"1px solid #3BB77E",
+                       borderBottom:"1px solid #7B02EA",
                        margin:"10px 0",
                        fontSize:"1.2vmax",
                        height:"40px"
@@ -75,7 +75,7 @@ const Support = ({history}) => {
                        border:"none",
                        outline:"none",
                        width:"100%",
-                       borderBottom:"1px solid #3BB77E",
+                       borderBottom:"1px solid #7B02EA",
                        margin:"10px 0",
                        fontSize:"1.2vmax",
                        height:"40px"
@@ -85,7 +85,7 @@ const Support = ({history}) => {
                     border:"none",
                     outline:"none",
                     width:"100%",
-                    borderBottom:"1px solid #3BB77E",
+                    borderBottom:"1px solid #7B02EA",
                     margin:"10px 0",
                     fontSize:"1.2vmax",
                 }}
@@ -96,7 +96,7 @@ const Support = ({history}) => {
                        border:"none",
                        cursor:"pointer",
                        width:"100%",
-                       background:"#3BB77E",
+                       background:"#7B02EA",
                        height:"40px",
                        margin:"10px 0",
                        color:"#fff",
