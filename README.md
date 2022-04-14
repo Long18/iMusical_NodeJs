@@ -34,3 +34,8 @@ Go into that website, create an account, and then go to the API section.
 After got API key, go to config/.env and change it to your API key.
 
     Here is website to test Cart: https://stripe.com/docs/testing
+
+Developed By :
+Nguyen Tien Long - 1811060449 - 18DTHE1
+Le Nguyen thanh Long 1811060436 - 18DTHB3
+Nguyen Le Hong Vi - 1811144694 - 18DTHE1
