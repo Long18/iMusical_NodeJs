@@ -8,15 +8,18 @@ import { getOrderDetails, clearErrors } from "../../actions/OrderAction";
 import { useAlert } from "react-alert";
 import Loading from "../../more/Loader";
 import BottomTab from "../../more/BottomTab";
+import { ToastContainer, toast } from "react-toastify";
 
 const MyOrderDetails = ({ match }) => {
-  const { order, error, loading } = useSelector((state) => state.myOrderDetails);
+  const { order, error, loading } = useSelector(
+    (state) => state.myOrderDetails
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
@@ -65,10 +68,12 @@ const MyOrderDetails = ({ match }) => {
                     }
                   >                  
                   </p>
-                  <p style={{
-                      color:"green"
-                  }}>
-                  PAID
+                  <p
+                    style={{
+                      color: "green",
+                    }}
+                  >
+                    PAID
                   </p>
                 </div>
 
@@ -97,7 +102,6 @@ const MyOrderDetails = ({ match }) => {
             <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>
               <div className="orderDetailsCartItemsContainer">
-
                 {order.orderItems &&
                   order.orderItems.map((item) => (
                     <div key={item.Offer}>
@@ -111,13 +115,21 @@ const MyOrderDetails = ({ match }) => {
                       </span>
                     </div>
                   ))}
-
-
               </div>
             </div>
           </div>
         </>
-      )}
+      )}<ToastContainer
+      position="bottom-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
       <BottomTab />
     </>
   );
