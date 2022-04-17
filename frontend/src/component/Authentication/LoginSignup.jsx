@@ -25,10 +25,10 @@ const LoginSignup = ({ history, location }) => {
     name: "",
     email: "",
     password: "",
-    // avatar: {
-    //   public_id:"",
-    //   url: "",
-    // },
+    avatar: {
+      public_id:"",
+      url: "",
+    },
   });
 
   const { name, email, password } = user;

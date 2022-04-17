@@ -1,39 +1,49 @@
 /* eslint-disable no-unused-vars */
 import "./App.css";
-import Home from "./component/Home/Home";
-import WebFont from "webfontloader";
-import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProductDetails from "./component/Products/ProductDetails";
-import LoginSignup from "./component/Authentication/LoginSignup";
-import UserData from "./more/UserData";
-import { useSelector } from "react-redux";
-import { loadUser } from "./actions/UserAction";
-import Store from "./store";
+
 import ProtectedRoute from "./route/ProtectedRoute";
+
+import Home from "./component/Home/Home";
+
+import LoginSignup from "./component/Authentication/LoginSignup";
+
+import ProductDetails from "./component/Products/ProductDetails";
+import Products from "./component/Products/Products";
+import Search from "./component/Products/Search";
+
 import Profile from "./component/User/Profile";
 import UpdatePassword from "./component/User/UpdatePassword";
 import EditProfile from "./component/User/EditProfile";
-import About from "./component/About/About";
-import Products from "./component/Products/Products";
-import Search from "./component/Products/Search";
-import Support from "./more/Support";
+import MyOrder from "./component/User/MyOrder";
+import MyOrderDetails from "./component/User/MyOrderDetails";
+import MoreOption from "./component/User/MoreOption";
+
 import Cart from "./component/Cart/Cart";
 import Favourites from "./component/Cart/Favourites";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
-import axios from "axios";
-import React, { useState } from "react";
 import Payment from "./component/Cart/Payment";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import Success from "./component/Cart/Success";
-import MyOrder from "./component/User/MyOrder";
-import MyOrderDetails from "./component/User/MyOrderDetails";
+
+import About from "./component/About/About";
+
 import CommingSoon from "./more/CommingSoon.jsx";
 import Rules from "./more/Rules.jsx";
 import Contact from "./more/Contact.jsx";
-import MoreOption from "./component/User/MoreOption";
+import Support from "./more/Support";
+import UserData from "./more/UserData";
+
+import Store from "./store";
+import { loadUser } from "./actions/UserAction";
+
+import WebFont from "webfontloader";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import React, { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
